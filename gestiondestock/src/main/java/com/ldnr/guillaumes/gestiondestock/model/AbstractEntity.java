@@ -1,6 +1,7 @@
-package model;
+package com.ldnr.guillaumes.gestiondestock.model;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ import lombok.Data;
 
 @Data
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class) 
 public class AbstractEntity implements Serializable {
 	
 	@Id
@@ -29,11 +30,11 @@ public class AbstractEntity implements Serializable {
 	@CreatedDate
 	@Column(name = "creationDate", nullable = false)
 	@JsonIgnore
-	private Date creationDate;
+	private Instant creationDate;
 	
 	@LastModifiedDate
 	@Column(name = "lastModifiedDate")
 	@JsonIgnore
-	private Date lastModifiedDate;
+	private Instant lastModifiedDate;
 
 }

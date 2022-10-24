@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/gestionstock?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/gestionstockgs?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -8,8 +8,12 @@ spring:
   jpa:
     database: MYSQL
     show-sql: false
+    properties:
+     hibernate:
+        session_factory:
+           interceptor:com.ldnr.guillaume.gestiondestock.interceptor.Interceptor
 
-    # Hibernate DDL Auto (create, create-drop, update)
+  # Hibernate DDL Auto (create, create-drop, update)
     hibernate:
       ddl-auto: update
       dialect: org.hibernate.dialect.MySQL5Dialect
